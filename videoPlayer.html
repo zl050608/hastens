@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>海丝腾</title>
+
+    <link href="css/swiper.min.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        /*团队*/
+        .sblockWrap{
+            width: 100%;
+            overflow: hidden;
+            margin-top: 34vw;
+        }
+
+
+        .feedBack-wrap {
+            /*position: relative;*/
+            /*margin-bottom: 40px;*/
+        }
+
+        .feedBack-swiper {
+            width: 100vw;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .feedBack-swiper .swiper-slide {
+            width: 86.4vw;
+            height:122.9vw;
+            padding: 0;
+            /*background-color: #fff;*/
+            opacity: .7;
+            transform: scale(0.8);
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -webkit-transition: transform 1.0s;
+            -moz-transition: transform 1.0s;
+        }
+        .swiper-slide img{
+            width:100%;
+            height:100%;
+        }
+
+        .feedBack-swiper .swiper-slide-active {
+            transform: scale(1);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .feedBack-wrap .swiper-container .swiper-slide.swiper-slide-prev {
+            transform: scale(0.8) translateX(20vw);
+        }
+
+        .feedBack-wrap .swiper-container .swiper-slide.swiper-slide-next {
+            transform: scale(0.8) translateX(-20vw);
+        }
+
+        .gp-item {
+            width: 100%;
+            height: 312px;
+            text-align: center;
+            margin: 0 auto;
+            box-shadow: rgba(50, 50, 50, 0.4) 0 0 20px;
+            border-radius: 15px;
+        }
+
+        .gp-item .gp-head {
+            margin: 38px auto 26px;
+        }
+
+        .gp-item .gp-name {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .gp-item .gp-title {
+            font-size: 16px;
+            color: #767676;
+            line-height: 40px;
+        }
+
+        .gp-item .gp-exp {
+            font-size: 16px;
+            color: #767676;
+            line-height: 28px;
+        }
+        .logo {
+            width: 100%;
+            height: 27.7vw;
+            position: absolute;
+            top: 0;
+            z-index: 10;
+        }
+
+        .title {
+            width: 60vw;
+            height: 12.8vw;
+            position: absolute;
+            z-index: 20;
+            top: 8vw;
+            right: 5.3vw;
+            text-align: right;
+        }
+
+        .title span {
+            display: inline-block;
+            width: 100%;
+            font-size: 20px;
+            color: #011E47;
+            font-weight: bold;
+            font-family: "微软雅黑"
+        }
+        .videoWrap{
+            position:absolute;
+            width:100vw;
+            height:60vw;
+            top:40vw;
+        }
+        .videoWrap video{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <img src="images/simpleBg.png" style="width: 100%;position: fixed;left: 0;top: 0;z-index:-1;">
+    <div class="title">
+        <span>海丝腾</span>
+        <span>视频简介</span>
+    </div>
+    <img class="logo" src="images/logo.png" alt="">
+    <div class="videoWrap">
+        <!--<video src="https://common-1257019973.cos.ap-chengdu.myqcloud.com/a8268e85-3871-4812-bcbc-38c9281441b3video.mp4"></video>-->
+        <video controls>
+            <source :src="videoSource" type="video/mp4">
+            <source :src="videoSource" type="video/ogg">
+            您的浏览器不支持 video 标签。
+        </video>
+    </div>
+</div>
+</body>
+<!--<script src="../js/swiper.min.js"></script>-->
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!',
+            content:[],
+            videoSource:"https://common-1257019973.cos.ap-chengdu.myqcloud.com/hastens1.mp4",
+            videoList:["../images/video0.png","../images/video1.png","../images/video2.png",]
+        },
+        created:function(){
+
+        },
+        methods: {
+            getParam:function (name) {
+                var href = window.location.href;
+                var hrefValue = href.split("?")[1]
+
+                if (hrefValue) {
+                    var hrefs = hrefValue.split("&")
+                    for (var position = 0; position < hrefs.length; position++) {
+                        if (hrefs[position].split("=")[0] == name) {
+                            return hrefs[position].split("=")[1]
+                        }
+                    }
+                }
+            },
+            imgClick:function(index){
+                console.log(index)
+            }
+        }
+    })
+</script>
+
+</html>

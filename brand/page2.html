@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no">
+    <!--<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/css/zui.min.css">-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/lib/jquery/jquery.js"></script>
+    <!--<script src="https//cdnjs.cloudflare.com/ajax/libs/zui/1.8.1/js/zui.min.js"></script>-->
+    <!--<link href=css/animate.css rel=stylesheet>-->
+    <!--<script src=https://cdn.bootcss.com/zui/1.8.1/lib/datetimepicker/datetimepicker.min.js></script>-->
+    <!--<link href=https://cdn.bootcss.com/zui/1.8.1/lib/datagrid/zui.datagrid.min.css rel=stylesheet>-->
+    <!--<script src=https://cdn.bootcss.com/zui/1.8.1/lib/datagrid/zui.datagrid.min.js></script>-->
+    <!--<script src=https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.js></script>-->
+    <!--<script src=//imgcache.qq.com/open/qcloud/js/vod/sdk/ugcUploader.js></script>-->
+    <!--<script src=https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js></script>-->
+    <!--<script src=https://x.matrixpr.net/c/l/h5/login.js></script>-->
+    <script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script>
+    <script src=https://x.matrixpr.net/c/wx/wxShare.js></script>
+    <!--<script src=//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.2.js charset=utf-8></script>-->
+    <!--<script src=https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js></script>-->
+    <title>海丝腾</title>
+    <style>a {
+        text-decoration: none
+    }
+
+    a:hover {
+        text-decoration: none
+    }
+
+    a:link {
+        text-decoration: none
+    }
+
+    .logo {
+        width: 100%;
+        height: 27.7vw;
+        position: absolute;
+        top: 0;
+        z-index: 10;
+    }
+
+    .title {
+        width: 60vw;
+        height: 12.8vw;
+        position: absolute;
+        z-index: 20;
+        top: 8vw;
+        right: 5.3vw;
+        text-align: right;
+    }
+
+    .title text {
+        display: inline-block;
+        width: 100%;
+        font-size: 20px;
+        color: #011E47;
+        font-weight: bold;
+        font-family: "微软雅黑"
+    }
+
+    .content_div {
+        justify-content: left;
+        flex-wrap: wrap;
+        position: absolute;
+        width: 50vw;
+        top: 35vw;
+        left: 47vw;
+        height: 90vw;
+        overflow: scroll;
+
+    }
+    .content_div div{
+        width:50vw;
+        height:42.2vw;
+    }
+    .content_div div img{
+        width:100%;
+        height:100%;
+    }
+    .content_item {
+        width: 50vw;
+        height: 41.6vw;
+        margin-top: 6.6vw;
+    }
+
+    </style>
+</head>
+<body style="padding: 0;margin: 0;position: relative;width: 100%;height: 100%;">
+
+<div class="title">
+    <text>海丝腾</text>
+    <a href="" download="test" id="download"><text>历史课程</text></a>
+</div>
+
+<img class="logo" src="../images/logo.png" alt="">
+
+<img src="../images/simpleBg.png" style="width: 100%;position: fixed;left: 0;top: 0">
+
+<div id="wrap" style="position:absolute;width: 50vw;height: 120vw;top:30vw;left: 0vw;">
+    <canvas id="myCanvas" style="width: 100%;height: 100%;"></canvas>
+</div>
+
+<div class="content_div">
+    <div class="div1" style="display: none">
+        <a class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img class="div_image" src="../images/31.png" class="content_item"></img>
+        </a>
+    </div>
+    <div class="div2" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div><div class="div3" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div><div class="div4" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div><div class="div5" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div><div class="div6" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div><div class="div7" style="display: none">
+        <a class="div_image" class="div_a" href="http://saic-gmf.matrixpr.net/img/SupermanArsenal/index.html">
+            <img src="../images/32.png" class="content_item"></img>
+        </a>
+    </div>
+
+
+</div>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    var headPath = []
+    var screenWidth = document.body.clientWidth;
+    var screenHeight = document.body.clientHeight;
+    var availHeight = window.screen.availHeight
+    var availWidth = window.screen.availWidth
+    var lineWidth = 2;
+    var headPathPointNum = 300
+    var headStart = 30
+    var headStartInit = headStart
+
+    console.log("screenWidth " + screenWidth)
+    console.log("screenHeight " + screenHeight)
+    console.log("availHeight " + availHeight)
+    console.log("availWidth " + availWidth)
+
+    var ratio = window.devicePixelRatio
+    var headNum = 4; //左侧头像的空间间隔（4表示有5个头像之间的四个间隔）
+    var canvasWdith = screenWidth * 0.5;//画布的宽度相对宽度百分比
+    var canvasHeight = screenWidth * 1.2;//画布的高度相对屏幕宽度百分比
+    var offsetX = 0;
+    var offsetY = canvasWdith * 3 / 5;//偏移量
+    var spaceScale = 0.15 //上下空间的预留百分比
+
+    var headWidth = canvasWdith / 1.4;//默认的头像宽度
+    var headHeight = headWidth / 2.7;//默认的头像高度(理论上宽度和高度的标准，图标们不可能完全满足，所以一般以一个为标准即可)
+    var drawBy = "height" //默认头像以相同的高度绘制
+    var selectScale = 1.15
+
+    var checkPosition = -1 //当前选中的头像在数组中的位置
+    let scrollTigerTime = 500 //触发滑动手指抬起的时间
+    let scrollTigerLength = 50 //触发滑动手指抬起的距离
+
+    clear()
+
+    console.log("headWidth " + headWidth)
+    console.log("headHeight " + headHeight)
+
+    //头像的配置文件
+    var headArray = [
+        {
+            tag: 1,
+            headUrl: '../images/person_1_1.png',
+            headSelectUrl: '../images/person_1_1_select.png',
+            headItem: [
+                {
+                    itemUrl: '../images/31.png',
+                    itemPath: 'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016df7a1b157006d'
+                },
+                {
+                    itemUrl: '',
+                    itemPath: ''
+                },{
+                    itemUrl: '',
+                    itemPath: ''
+                },{
+                    itemUrl: '',
+                    itemPath: ''
+                },{
+                    itemUrl: '',
+                    itemPath: ''
+                },{
+                    itemUrl: '',
+                    itemPath: ''
+                },{
+                    itemUrl: '',
+                    itemPath: ''
+                },
+            ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        },
+        {
+            tag: 2,
+            headUrl: '../images/person_1_2.png',
+            headSelectUrl: '../images/person_1_2_select.png',
+            headItem: [
+                {itemUrl: '../images/tag2_1.png', itemPath: 'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016df7a423ec006e'},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        },
+        {
+            tag: 3,
+            headUrl: '../images/person_1_3.png',
+            headSelectUrl: '../images/person_1_3_select.png',
+            headItem: [
+                {
+                    itemUrl: '../images/tag3_8.png',
+                    itemPath: 'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016df7a5f8e4006f'
+                },
+            ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        },
+        {
+            tag: 4,
+            headUrl: '../images/person_1_4.png',
+            headSelectUrl: '../images/person_1_4_select.png',
+            headItem: [
+                {itemUrl: '../images/tag4_3.png', itemPath: 'http://commonapi.matrixpr.net/ispring/8a9eed7a705c4d8d01705c4d8d890000/'},
+                ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        },
+        {
+            tag: 5,
+            headUrl: '../images/person_1_5.png',
+            headSelectUrl: '../images/person_1_5_select.png',
+            headItem: [
+                {itemUrl: '../images/tag5_7.png', itemPath: 'http://commonapi.matrixpr.net//ispring/8a9eed7a705c4d8d01705c4e89b20001'}
+                ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        },
+        {
+            tag: 6,
+            headUrl: '../images/person1_7.png',
+            headSelectUrl: '../images/person1_7_select.png',
+            headItem: [
+                {itemUrl:'../images/tag7_1.png', itemPath: '../player.html'},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                {itemUrl: '', itemPath: ''},
+                ],
+            width: 0,
+            height: 0,
+            point: {x: 0, y: 0},
+            image: '',
+            selectImage: '',
+            select_width: 0,
+            select_height: 0,
+        }
+    ]
+    var headImgArray = []
+
+    var autoRunInterval;
+
+    window.onload = function () {
+        initPath()
+    }
+
+    let initPoint = {}
+    let startPoint = {}
+    let startTime;
+
+    c.addEventListener("touchstart", function (a) {
+        console.log("touchstart")
+        endScrollTask()
+
+        startTime = new Date().getTime()
+        startPoint = {
+            x: 0,
+            y: 0
+        }
+        initPoint = {
+            x: 0,
+            y: 0
+        }
+        startPoint.x = a.touches[0].clientX - offsetX
+        startPoint.y = a.touches[0].clientY - offsetY
+        initPoint.x = a.touches[0].clientX - offsetX
+        initPoint.y = a.touches[0].clientY - offsetY
+        movePoint.x = a.touches[0].clientX - offsetX
+        movePoint.y = a.touches[0].clientY - offsetY
+    });
+
+    let moveL = 1;
+    let movePoint = {
+        x: 0,
+        y: 0
+    }
+
+    c.addEventListener("touchmove", function (a) {
+        movePoint.x = a.touches[0].clientX - offsetX
+        movePoint.y = a.touches[0].clientY - offsetY
+
+        if (movePoint.y - startPoint.y > moveL) {
+            headStart = headStart + 2
+            startPoint.x = movePoint.x
+            startPoint.y = movePoint.y
+        }
+
+        if (movePoint.y - startPoint.y < -moveL) {
+            headStart = headStart - 2
+            startPoint.x = movePoint.x
+            startPoint.y = movePoint.y
+        }
+        startDraw()
+
+        a.returnValue = false;
+    });
+
+    c.addEventListener("touchend", function (a) {
+        console.log("touchend")
+        a.returnValue = true;
+        let endTime = new Date().getTime();
+        let scrollTimeInterval = endTime - startTime;
+        let endPoint = {
+            x: 0,
+            y: 0
+        }
+
+        endPoint.x = movePoint.x
+        endPoint.y = movePoint.y
+
+        clickEvent(initPoint, endPoint)
+
+        let scrollLengthInterval = endPoint.y - initPoint.y
+        console.log("scrollTimeInterval " + scrollTimeInterval + " scrollLengthInterval " + scrollLengthInterval)
+        startScroll(scrollTimeInterval, scrollLengthInterval)
+    });
+
+
+    function initPath() {
+        headPath = []
+        drawLine()
+        headStartInit = parseInt(headPath.length * spaceScale)
+        headStart = headStartInit
+
+        console.log("headStart headStartInit " + headStartInit)
+        initDrawImage();//初始化要绘制的头像数组image
+
+        setTimeout(function () {
+            initDrawInageWH()
+            startDraw()
+        },500)
+    }
+
+    function clear() {
+        c.width = canvasWdith
+        c.height = canvasHeight
+
+        let ratio = 2
+        c.width = canvasWdith * ratio;
+        c.height = canvasHeight * ratio;
+        c.style.width = canvasWdith + 'px';
+        c.style.height = canvasHeight + 'px';
+
+        ctx.scale(ratio, ratio);
+    }
+
+    function drawLine() {
+        draw(ctx, -3, 0, -3, canvasHeight, canvasWdith * 0.6, canvasHeight / 2, headPathPointNum)
+    }
+
+    function startDraw() {
+        clear()
+        drawLine()
+        refreshHeadPath()
+        ctx.moveTo(0, 0)
+        for (let position = 0; position < headArray.length; position++) {
+            let image;
+            let width
+            let height
+            checkPosition = getSelectPosition()
+            let x;
+            let y;
+
+            if (position == checkPosition) {
+                image = headArray[position].selectImage
+                width = headArray[position].select_width
+                height = headArray[position].select_height
+                x = headArray[position].point.x - 5
+                y = headArray[position].point.y
+                changeRightItem(position)
+            } else {
+                image = headArray[position].image
+                width = headArray[position].width
+                height = headArray[position].height
+                x = headArray[position].point.x
+                y = headArray[position].point.y
+            }
+            if (checkShow(headArray[position])) {
+                drawHead(ctx, image, x, y, width, height);
+            }
+        }
+
+        initDownload()
+    }
+
+    //边缘位置不显示头像
+    function checkShow(head) {
+        if (head.point.y < head.height / 3 || canvasHeight - head.point.y < head.height) {
+            return false
+        }
+        return true;
+    }
+
+    function getSelectPosition() {
+        let centerPoint = headPath[parseInt(headPath.length / 2 - headPath.length / 10)]
+        let minLength = 0
+        let minPosition = 0
+        for (let position = 0; position < headArray.length; position++) {
+            let point2CenterLength = Math.sqrt((headArray[position].point.x - centerPoint.x) * (headArray[position].point.x - centerPoint.x) + (headArray[position].point.y - centerPoint.y) * (headArray[position].point.y - centerPoint.y))
+
+            if (minLength != 0 && minLength > point2CenterLength) {
+                minLength = point2CenterLength
+                minPosition = position
+            }
+
+            if (minLength == 0) {
+                minLength = point2CenterLength
+            }
+        }
+        return minPosition;
+    }
+
+    //根据手指滑动的时间和距离开始自动滚动
+    function startScroll(timeInterval, lengthInterval) {
+        console.log("lengthInterval " + lengthInterval)
+
+        if (timeInterval <= scrollTigerTime) {
+            if (lengthInterval > scrollTigerLength) {
+                let initLength = lengthInterval / 3 * 2
+                scrllByLength("down", initLength, initLength, -1)
+            }
+
+            if (lengthInterval <= (0 - scrollTigerLength)) {
+                let initLength = Math.abs(lengthInterval) / 3 * 2
+                scrllByLength("up", initLength, initLength, -1)
+            }
+        }
+    }
+
+    function endScrollTask() {
+        try {
+            clearTimeout(scrollTask)
+        } catch (ex) {
+
+        }
+    }
+
+    //开始滚动，
+    //tag 为滚动到的目标，如果设置了滚动目标，滚动到目标停下，否则滚动完再停下
+    let scrollTask;
+
+    function scrllByLength(direction, length, initLength, tag) {
+        let checkTag = headArray[checkPosition].tag;
+
+        if (checkTag == tag) {
+            endScrollTask()
+            return;
+        }
+
+        if (length <= 0) {
+            return;
+        }
+        if (direction == "down") {
+            headStart = headStart + 2
+        }
+        if (direction == "up") {
+            headStart = headStart - 2
+        }
+        startDraw()
+        length = length - 1
+        scrollTask = setTimeout(function () {
+            scrllByLength(direction, length, initLength, tag)
+        }, getScrollSpead(length, initLength))
+    }
+
+    function getScrollSpead(length, initLength) {
+        let lastSpead = 16;
+        let initSpead = 1;
+        let currnetSpead = initSpead + (lastSpead - (lastSpead * length / initLength))
+        return currnetSpead;
+    }
+
+    function clickEvent(startPoint, endPoint) {
+        if (startPoint.x == endPoint.x && startPoint.y == endPoint.y) {
+            let clickPosition = checkSelect(startPoint.x, endPoint.y);
+            console.log("clickPosition " + clickPosition)
+            turn2SelectPosition(clickPosition)
+            return;
+        }
+    }
+
+    //根据坐标点判断哪个头像被选中
+    function checkSelect(x1, y1) {
+        let result = -1
+        for (let position = 0; position < headArray.length; position++) {
+            let x = headArray[position].point.x
+            let y = headArray[position].point.y
+
+            let hX = x + headArray[position].width
+            let hY = y + headArray[position].height
+
+            console.log("x1 " + x1)
+            console.log("y1 " + y1)
+            console.log("x " + x)
+            console.log("y " + y)
+            console.log("hX " + hX)
+            console.log("hY " + hY)
+
+            if (x1 > x && x1 < hX && y1 > y && y1 < hY) {
+                result = position
+            }
+        }
+        return result;
+    }
+
+    //旋转到手指选中的位置
+    function turn2SelectPosition(position) {
+        if (position < 0 || position > headArray.length) {
+            return;
+        }
+        let tag = headArray[position].tag;
+
+        if (position > checkPosition) {
+            scrllByLength("up", 1000, 1000, tag)
+
+        }
+        if (position < checkPosition) {
+            scrllByLength("down", 1000, 1000, tag)
+
+        }
+
+    }
+
+    //重新设置头像在数组中的位置
+    function resetHeadArray(type) {
+        var newArray = []
+
+        if (type == 0) {
+            newArray.push(headArray[headArray.length - 1])
+            for (let position = 0; position < headArray.length - 1; position++) {
+                newArray.push(headArray[position])
+            }
+        } else {
+            newArray.push(headArray[1])
+            for (let position = 2; position < headArray.length; position++) {
+                newArray.push(headArray[position])
+            }
+            newArray.push(headArray[0])
+        }
+
+        headArray = newArray
+    }
+
+    function refreshHeadPath() {
+        let headInterval = parseInt((headPath.length - headStartInit * 2) / (headNum))
+
+        if (headStart - headStartInit > headInterval) {
+            headStart = headStartInit
+            resetHeadArray(0)
+        }
+
+        if (headStartInit - headStart > headInterval) {
+            headStart = headStartInit
+            resetHeadArray(1)
+        }
+
+        for (let position = 0; position < headArray.length; position++) {
+            let headPosition = position * headInterval + headStart;
+
+            if (headPosition <= headPath.length - 1 && headPosition > 0) {
+
+                headArray[position].point.x = headPath[headPosition].x - headArray[position].height / 2
+                headArray[position].point.y = headPath[headPosition].y - headArray[position].height / 2
+            }
+        }
+    }
+
+    function changeRightItem(position) {
+        console.log(headArray)
+        if (headArray[position] && headArray[position].headItem) {
+            let headItem = headArray[position].headItem;
+            console.log(headItem.length)
+            for (let i = 0; i < headItem.length; i++) {
+                let realI = i + 1
+                let div_class_name = ".div" + realI
+                console.log(div_class_name)
+
+                $(div_class_name).find("a").each(function () {
+                    $(this).attr("href", headItem[i].itemPath)
+                })
+                console.log($(div_class_name))
+                $(div_class_name).find("img").each(function () {
+                    console.log(headItem[i])
+                    if (headItem[i].itemUrl) {
+                        $(this).attr("src", headItem[i].itemUrl)
+                        $(div_class_name).css("display", "block");
+                    } else {
+                        $(div_class_name).css("display", "none");
+                    }
+                })
+            }
+        }
+    }
+
+    //根据头像的原始宽高，初始化头像绘制的宽高
+    function initImageWH(width, height, by) {
+        if (by == "width") {
+            let resultWidth = headWidth;
+            let resultHeight = resultWidth * height / width;
+
+            return {width: resultWidth, height: resultHeight}
+        }
+
+        if (by == "height") {
+            let resultHeight = headHeight
+            let resultWidth = headHeight * width / height
+
+            return {width: resultWidth, height: resultHeight}
+        }
+    }
+
+    function initDrawImage() {
+        headImg = []
+        for (let position = 0; position < headArray.length; position++) {
+            console.log(headArray[position].headUrl)
+            var headImg = new Image();
+            headImg.src = headArray[position].headUrl;
+            headArray[position].image = headImg
+
+            var selectImg = new Image();
+            selectImg.src = headArray[position].headSelectUrl;
+            headArray[position].selectImage = selectImg
+        }
+        console.log(headArray)
+    }
+
+    function initDrawInageWH() {
+        for (let position = 0; position < headArray.length; position++) {
+            let info = initImageWH(headArray[position].image.width, headArray[position].image.height, drawBy)
+            console.log(info)
+            headArray[position].width = info.width
+            headArray[position].height = info.height
+
+            let selectInfo = initImageWH(headArray[position].selectImage.width, headArray[position].selectImage.height, drawBy)
+            console.log(selectInfo)
+            headArray[position].select_width = selectInfo.width * selectScale
+            headArray[position].select_height = selectInfo.height * selectScale
+        }
+    }
+
+    function drawHead(ctx, headImg, x, y, width, height) {
+        ctx.drawImage(headImg, x, y, width, height)
+    }
+
+    /**
+      * @param sx 起始点x坐标
+      * @param sy 起始点y坐标
+      * @param ex 结束点x坐标
+      * @param ey 结束点y坐标
+      * @param cx 控制点x坐标
+      * @param cy 控制点y坐标
+      * @param part 将起始点到控制点的线段分成的份数，数值越高，计算出的曲线越精确
+      */
+    function draw(ctx, sx, sy, ex, ey, cx, cy, part) {
+        //绘制起始点、控制点、终点
+
+        ctx.lineWidth = lineWidth
+
+        // ctx.beginPath();
+        // ctx.moveTo(sx, sy);
+        // ctx.lineTo(cx, cy);
+        // ctx.lineTo(ex, ey);
+        // ctx.stroke();
+
+        ctx.strokeStyle = "#011E47";
+        // 绘制二次贝塞尔曲线
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        // 起始点到控制点的x和y每次的增量
+        var changeX1 = (cx - sx) / part;
+        var changeY1 = (cy - sy) / part;
+        // 控制点到结束点的x和y每次的增量
+        var changeX2 = (ex - cx) / part;
+        var changeY2 = (ey - cy) / part;
+
+        for (var i = 0; i < part; i++) {
+            // 计算两个动点的坐标
+            var qx1 = sx + changeX1 * i;
+            var qy1 = sy + changeY1 * i;
+            var qx2 = cx + changeX2 * i;
+            var qy2 = cy + changeY2 * i;
+            // 计算得到此时的一个贝塞尔曲线上的点坐标
+            var bx = qx1 + (qx2 - qx1) * i / part;
+            var by = qy1 + (qy2 - qy1) * i / part;
+
+            let point = {
+                x: 0,
+                y: 0
+            }
+            point.x = bx;
+            point.y = by
+
+            if (headPath.length < headPathPointNum) {
+                headPath.push(point)
+            }
+
+            ctx.lineTo(bx, by);
+        }
+        ctx.stroke();
+    }
+
+    function initDownload() {
+        var dataURL = c.toDataURL("image/png");
+        var a = document.getElementById("download");
+        a.setAttribute("href",dataURL);
+    }
+
+</script>
+
+
+
+</body>
+</html>
+

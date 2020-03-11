@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>海丝腾</title>
+
+		<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+		<script type="text/javascript" src="../scroll/jquery-2.1.4.min.js"></script>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				height:100%;
+				position:relative;
+				overflow-y:auto;
+			}
+			.bg{
+				width:100%;
+				position:fixed;
+				top:0;
+				left:0;
+				z-index:-1;
+			}
+			.videoWrap{
+				width:90.6vw;
+				height:45.3vw;
+				position:absolute;
+				left:0;
+				right:0;
+				margin:auto;
+				top:27.7vw;
+			}
+			.video{
+				width:100%;
+				height:100%;
+				position:relative;
+			}
+			.mask{
+				width:100%;
+				height:100%;
+				background:url(../images/videoMask.png) no-repeat 0 0/100% 100%;
+			}
+            .mask img{
+                width:7.5vw;
+                height:7.5vw;
+                position:absolute;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+                margin:auto;
+            }
+            .listTitle{
+                height:8vw;
+                line-height:8vw;
+                position:absolute;
+                width:60vw;
+                top:79vw;
+                left:4vw;
+                text-indent:11vw;
+                font-size: 5.3vw;
+                color: #011E47;
+                font-family:"微软雅黑";
+                font-weight:bold;
+            }
+            .listTitle img{
+                width:9.3vw;
+                height:7.5vw;
+                position:absolute;
+                top:0;
+                bottom:0;
+                margin:auto;
+                left:0;
+            }
+            ul{
+                width:95vw;
+                position:absolute;
+                left:0;
+                right:0;
+                margin:auto;
+                top:30vw;
+                /*height:210vw;*/
+            }
+            ul:after{
+                clear:both;
+                content:"";
+                display:block;
+                height:0;
+            }
+            ul li{
+                width:47.5vw;
+                height:65.1vw;
+                float:left;
+                margin-bottom:2px;
+				list-style:none;
+            }
+			li:last-child{
+				margin-bottom:10vw;
+			}
+			ul li img{
+                width:100%;
+				height:100%;
+            }
+			.logo {
+				width: 100%;
+				height: 27.7vw;
+				position: absolute;
+				top: 0;
+				z-index: 10;
+			}
+
+			.title {
+				width: 60vw;
+				height: 12.8vw;
+				position: absolute;
+				z-index: 20;
+				top: 8vw;
+				right: 5.3vw;
+				text-align: right;
+			}
+
+			.title span {
+				display: inline-block;
+				width: 100%;
+				font-size: 20px;
+				color: #011E47;
+				font-weight: bold;
+				font-family: "微软雅黑"
+			}
+			[v-cloak]{
+				display:none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+
+			<img class="bg" src="../images/simpleBg.png" alt="">
+			<div class="title" v-if="content.length > 0">
+				<span>{{content[listIndex].text1}}</span>
+				<span>{{content[listIndex].text2}}</span>
+			</div>
+
+			<img class="logo" src="../images/logo.png" alt="">
+			<!--<div class="videoWrap">-->
+			<!--<div class="video">-->
+			<!--<div class="mask">-->
+			<!--<img src="../images/videoBtn.png" alt="">-->
+			<!--</div>-->
+			<!--</div>-->
+			<!--</div>-->
+			<!--<div class="listTitle">-->
+			<!--<img src="../images/listPic.png" alt="">-->
+			<!--8节课程列表-->
+			<!--</div>-->
+			<!--<a href="handWork.html">-->
+				<!---->
+			<!--</a>-->
+				<ul v-if="content.length > 0">
+					<li v-for="item in content[listIndex].itemInfo">
+						<a :href="item.link"><img :src="item.url" alt=""></a>
+					</li>
+				</ul>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue.js!',
+				content:[],
+				listIndex:-1
+			},
+			created:function(){
+				this.listIndex = this.getParam("list");
+				var obj1 = {
+					"text1": "海丝腾",
+					"text2": "保养指南课程",
+					"itemInfo": [
+						{url:"../images/afterSale/list11.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc8abf060075'},
+						{url:"../images/afterSale/list12.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc8d59480076'},
+						{url:"../images/afterSale/list13.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc8f5cc10077'},
+						{url:"../images/afterSale/list14.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc8f5cc10077'},
+						{url:"../images/afterSale/list15.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc90c4a10078'},
+						{url:"../images/afterSale/list16.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc9467900079'}]
+				};
+				var obj2 = {
+					"text1": "海丝腾",
+					"text2": "质保和商誉课程",
+					"itemInfo": [
+						{url:"../images/afterSale/list21.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc960ce1007a'},
+						{url:"../images/afterSale/list22.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc977910007b'},
+						{url:"../images/afterSale/list23.png",link:'http://commonapi.matrixpr.net//ispring/8a9eed7a6dc8b480016dfc989808007c'}],
+				};
+				// var obj3 = {
+				// 	"text1": "海丝腾",
+				// 	"text2": "床头板及床腿",
+				// 	"img": ["../images/bed/list31.png","../images/bed/list32.png","../images/bed/list33.png","../images/bed/list34.png","../images/bed/list35.png","../images/bed/list36.png","../images/bed/list37.png","../images/bed/list38.png","../images/bed/list39.png","../images/bed/list30.png"]
+				// };
+				this.content.push(obj1);
+				this.content.push(obj2);
+				// this.content.push(obj3);
+			},
+			methods: {
+				getParam:function (name) {
+					var href = window.location.href;
+					var hrefValue = href.split("?")[1]
+
+					if (hrefValue) {
+						var hrefs = hrefValue.split("&")
+						for (var position = 0; position < hrefs.length; position++) {
+							if (hrefs[position].split("=")[0] == name) {
+								return hrefs[position].split("=")[1]
+							}
+						}
+					}
+				},
+			}
+		})
+	</script>
+
+</html>

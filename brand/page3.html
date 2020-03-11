@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>海丝腾</title>
+    <script type="text/javascript" src="https://x.matrixpr.net/c/js/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .bg {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .videoWrap {
+            width: 90.6vw;
+            height: 45.3vw;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 27.7vw;
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../images/videoMask.png) no-repeat 0 0/100% 100%;
+        }
+
+        .mask img {
+            width: 8.8vw;
+            height: 8.8vw;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        .listTitle {
+            height: 8vw;
+            line-height: 8vw;
+            position: absolute;
+            width: 60vw;
+            top: 79vw;
+            left: 4vw;
+            text-indent: 11vw;
+            font-size: 5.3vw;
+            color: #011E47;
+            font-family: "微软雅黑";
+            font-weight: bold;
+        }
+
+        .listTitle img {
+            width: 9.3vw;
+            height: 7.5vw;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: 0;
+        }
+
+        ul {
+            width: 92vw;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 90vw;
+            /*height:270vw;*/
+        }
+
+        ul:after {
+            clear: both;
+            content: "";
+            display: block;
+            height: 0;
+        }
+
+        ul li {
+            width: 46vw;
+            height: 65.1vw;
+            float: left;
+            margin-bottom: 2px;
+            list-style: none;
+        }
+
+        ul li a {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+
+        .logo {
+            width: 100%;
+            height: 27.7vw;
+            position: absolute;
+            top: 0;
+            z-index: 10;
+        }
+
+        .title {
+            width: 60vw;
+            height: 12.8vw;
+            position: absolute;
+            z-index: 20;
+            top: 8vw;
+            right: 5.3vw;
+            text-align: right;
+        }
+
+        .title span {
+            display: inline-block;
+            width: 100%;
+            font-size: 20px;
+            color: #011E47;
+            font-weight: bold;
+            font-family: "微软雅黑"
+        }
+
+        .videoMask {
+            width: 100%;
+            height: 100%;
+        }
+
+        .video span {
+            display: inline-block;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            font-size: 4.5vw;
+            left: 4vw;
+            top: 4vw;
+            z-index: 10;
+            letter-spacing: 2px;
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+
+<body>
+<img class="bg" src="../images/simpleBg.png" alt="">
+<div class="title">
+    <span>海丝腾</span>
+    <span>手工课程</span>
+</div>
+
+<img class="logo" src="../images/logo.png" alt="">
+<div class="videoWrap">
+    <div class="video">
+        <!--<img class="videoMask" src="../images/banner.png" alt="">-->
+        <div class="mask">
+            <video id=video_id width="100%" height="100%" poster="../images/videoMask.png" controls onplaying="tigger(1)" onpause="tigger(0)">
+                <source src="https://common-1257019973.cos.ap-chengdu.myqcloud.com/HastensLeander.mp4" type="video/mp4">
+                <source src="https://common-1257019973.cos.ap-chengdu.myqcloud.com/HastensLeander.mp4" type="video/ogg">
+                您的浏览器不支持 video 标签。
+            </video>
+            <!--<img onclick="tigger()" src="../images/videoBtn.png" alt="">-->
+        </div>
+        <span id="video_title_id">手工宣传短片</span>
+    </div>
+</div>
+<div class="listTitle">
+    <img src="../images/listPic.png" alt="">
+    课程列表
+</div>
+<ul>
+    <li style="background:url(../images/list0.png) no-repeat 0 0/100% 100%;">
+        <a href="http://commonapi.matrixpr.net/ispring/8a9eed7a6dc8b480016ddd33bb1f0058"></a>
+    </li>
+</ul>
+</body>
+<script>
+    function tigger() {
+        if(1){
+            $("#video_title_id").css("display","none");
+        } else {
+            $("#video_title_id").css("display","block");
+        }
+
+    }
+</script>
+
+</html>
